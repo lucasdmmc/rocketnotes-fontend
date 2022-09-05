@@ -1,10 +1,10 @@
 # RocketNotes-React-Explorer
 
-###In this project i'm leraning about:
+### In this project i'm leraning about:
 
--Components
--Properties
--Styled components (CSS-in-JS)
+- Components
+- Properties
+- Styled components (CSS-in-JS)
 
 
 ## Running Tests
