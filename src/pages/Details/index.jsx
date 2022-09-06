@@ -1,15 +1,23 @@
+<<<<<<< HEAD
 import { Container, Links, Content } from "./styles"
+=======
+import { Container, Links } from "./styles"
+>>>>>>> refs/remotes/origin/master
 import { Button } from "../../components/Button"
 import { Header } from "../../components/Header"
 import { Section } from "../../components/Section"
 import { Tag } from "../../components/Tag"
+<<<<<<< HEAD
 import { ButtonText } from "../../components/ButtonText"
+=======
+>>>>>>> refs/remotes/origin/master
 
 
 export function Details() {
   return (
     <Container>
       <Header />
+<<<<<<< HEAD
       
       <main>
         <Content>
@@ -35,6 +43,22 @@ export function Details() {
         
         </Content>
       </main>
+=======
+      <Section title="Links Úteis">
+        <Links>
+          <li><a href="#">https://www.rocketseat.com.br</a></li>
+          <li><a href="#">https://www.rocketseat.com.br</a></li>
+        </Links>
+      </Section>
+
+      <Section title="Marcadores">
+        <Tag title="Express" />
+        <Tag title="NodeJS" />
+      
+      </Section>
+      
+      <Button name="Voltar"/>
+>>>>>>> refs/remotes/origin/master
     </Container>
   )
 }
