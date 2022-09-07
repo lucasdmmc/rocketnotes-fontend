@@ -49,10 +49,4 @@ export const Content = styled.div`
     margin-top: 16px;
     text-align: justify;
   }
-
-
-  display: grid;
-  grid-template-rows: 105px auto;
-  grid-template-areas: "header" "content";
-
 `
