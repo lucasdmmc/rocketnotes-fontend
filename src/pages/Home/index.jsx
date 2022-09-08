@@ -1,10 +1,10 @@
-import { FiPlus, FiSearch} from "react-icons/fi"
 import { Container, Brand, Menu, Search, Content, NewNote } from "./styles"
-import { Section } from "../../Components/Section"
-import { Note } from "../../Components/Note"
-import { Header } from "../../Components/Header"
-import { ButtonText } from "../../Components/ButtonText"
-import { Input } from "../../Components/Input"
+import { FiPlus, FiSearch} from "react-icons/fi"
+import { Section } from "../../components/Section"
+import { Note } from "../../components/Note"
+import { Header } from "../../components/Header"
+import { ButtonText } from "../../components/ButtonText"
+import { Input } from "../../components/Input"
 
 export function Home() {
   return (
@@ -47,7 +47,7 @@ export function Home() {
         </Section>
       </Content>
 
-      <NewNote>
+      <NewNote to="/new">
         <FiPlus />
         Criar conta
       </NewNote>

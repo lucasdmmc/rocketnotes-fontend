@@ -1,10 +1,11 @@
 import { Container, Form } from "./styles"
-import { Input } from "../../Components/Input"
-import { Header } from "../../Components/Header"
-import { Textarea } from "../../Components/Textarea"
-import { Section } from "../../Components/Section"
-import { NoteItem } from "../../Components/NoteItem"
-import { Button } from "../../Components/Button"
+import { Input } from "../../components/Input"
+import { Header } from "../../components/Header"
+import { Textarea } from "../../components/Textarea"
+import { Section } from "../../components/Section"
+import { NoteItem } from "../../components/NoteItem"
+import { Button } from "../../components/Button"
+import { Link } from "react-router-dom"
 
 export function New() {
   return(
@@ -15,7 +16,10 @@ export function New() {
         <Form>
           <header>
             <h1>Criar nota</h1>
-            <a href="#">Voltar</a>
+            <Link to="/">
+              Voltar
+            
+            </Link>
           </header>
 
           <Input placeholder="Titulo" />

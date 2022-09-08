@@ -5,6 +5,9 @@
 - Components
 - Properties
 - Styled components (CSS-in-JS)
+- Children
+- Router
+- Navegation
 
 
 ## Running Tests
