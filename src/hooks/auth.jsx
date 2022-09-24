@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import {api} from "../services/api"
+import { api } from "../services/api"
 
 export const AuthContext = createContext({})
 
@@ -16,7 +16,7 @@ function AuthProvider({ children }) {
 
       setData({ user, token })
 
-      api.defaults.headers.authorization = `Bearer ${token}`
+      api.defaults.headers.common["authorization"] = `Bearer ${token}`
     } catch(error) {
       if(error.response){
         alert(error.response.data.message)
@@ -33,12 +33,30 @@ function AuthProvider({ children }) {
     setData({})
   }
 
+  async function updatedProfile({ user }) {
+    try {
+
+      await api.put("/users", user)
+      localStorage.setItem("@rocketnotes:user", JSON.stringify(user))
+
+      setData({ user, token: data.token })
+      alert("Perfil atualizado!")
+
+    } catch(error) {
+      if(error.response){
+        alert(error.response.data.message)
+      } else {
+        alert("Não foi possível atualizar o perfil!")
+      }
+    }
+  }
+
   useEffect(() => {
     const token = localStorage.getItem("@rocketnotes:token")
     const user = localStorage.getItem("@rocketnotes:user")
 
     if(token && user) {
-      api.defaults.headers.authorization = `Bearer ${token}`
+      api.defaults.headers.common["authorization"] = `Bearer ${token}`
 
       setData({
         token,
@@ -50,7 +68,8 @@ function AuthProvider({ children }) {
   return(
     <AuthContext.Provider value={{
       signIn,
-      signOut, 
+      signOut,
+      updatedProfile, 
       user: data.user
     }}>
       {children}
