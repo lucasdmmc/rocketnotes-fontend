@@ -30,7 +30,7 @@ export function Details() {
 
           </Section>
 
-          <Button name="Voltar"/>
+          <Button title="Voltar"/>
         
         </Content>
       </main>
