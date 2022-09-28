@@ -9,6 +9,7 @@ import { Section } from "../../components/Section"
 import { NoteItem } from "../../components/NoteItem"
 import { Textarea } from "../../components/Textarea"
 import { Button } from "../../components/Button"
+import { ButtonText } from "../../components/ButtonText"
 
 export function New() {
   const [title, setTitle] = useState("")
@@ -21,6 +22,10 @@ export function New() {
   const [newTags, setNewTags] = useState("")
 
   const navigate = useNavigate()
+
+  function handleBackToHome() {
+    navigate(-1)
+  }
 
   function handleAddLink() {
     if(newLink == "") return alert("Digite um link no campo")
@@ -68,7 +73,7 @@ export function New() {
     })
 
     alert("Nota cadastrada com sucesso!")
-    navigate("/")
+    navigate(-1)
   }
 
   return(
@@ -79,10 +84,10 @@ export function New() {
         <Form>
           <header>
             <h1>Criar nota</h1>
-            <Link to="/">
-              Voltar
-            
-            </Link>
+            <ButtonText 
+              title="Voltar"
+              onClick={handleBackToHome}
+            />
           </header>
 
           <Input 

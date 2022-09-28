@@ -13,11 +13,15 @@ export const Container = styled.div`
     align-items: center;
 
     padding: 0 124px;
-
-    > svg {
-      color: ${({ theme }) => theme.COLORS.GRAY_100};
-      font-size: 24px;
+    button {
+      > svg {
+        color: ${({ theme }) => theme.COLORS.GRAY_100};
+        font-size: 24px;
+      }
+      background: none;
+      border: none
     }
+
   }
 `
 

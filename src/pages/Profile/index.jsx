@@ -1,12 +1,14 @@
-import { useState } from "react"
-import { useAuth } from "../../hooks/auth"
+import  avatarPlaceholder  from "../../assets/avatar_placeholder.svg"
 import { FiArrowLeft, FiUser, FiMail, FiLock, FiCamera } from "react-icons/fi"
+import { Container, Form, Avatar } from "./styles"
+
+import { useAuth } from "../../hooks/auth"
 import { Input } from "../../components/Input"
 import { Button } from "../../components/Button"
-import { Container, Form, Avatar } from "./styles"
-import { Link } from "react-router-dom"
-import  avatarPlaceholder  from "../../assets/avatar_placeholder.svg"
+
+import { useNavigate } from "react-router-dom"
 import { api } from "../../services/api"
+import { useState } from "react"
 
 
 export function Profile() {
@@ -21,16 +23,24 @@ export function Profile() {
   const [avatar, setAvatar] = useState(avatarUrl)
   const [avatarFile, setAvatarFile] = useState(null)
 
+  const navigate = useNavigate()
+
+  function handleBackToHome() {
+    navigate(-1)
+  }
+
 
   async function handleUpdate() {
-    const user = {
+    const updated = {
       name,
       email,
       password: passwordNew,
       old_password: passwordOld
     }
 
-    await updatedProfile({ user, avatarFile })
+    const usetUpdated = Object.assign(user, updated)
+
+    await updatedProfile({ user: usetUpdated, avatarFile })
   }
 
   function handleChangeAvatar(event) {
@@ -43,9 +53,9 @@ export function Profile() {
   return (
     <Container>
       <header>
-        <Link to="/">
-          <FiArrowLeft />        
-        </Link>
+        <button type="button" onClick={handleBackToHome}>
+          <FiArrowLeft size={24}/>       
+        </button>
       </header>
 
       <Form>
@@ -96,8 +106,8 @@ export function Profile() {
         /> 
 
         <Button 
-          onClick={handleUpdate} 
           title="Salvar" 
+          onClick={handleUpdate} 
         />   
       </Form>
     </Container>

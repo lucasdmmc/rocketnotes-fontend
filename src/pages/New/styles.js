@@ -33,7 +33,7 @@ export const Form = styled.form`
 
     margin-bottom: 38px;
 
-    a {
+    button {
       font-size: 20px;
       color: ${({ theme }) => theme.COLORS.GRAY_100}
     }
