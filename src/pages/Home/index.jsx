@@ -107,7 +107,7 @@ export function Home() {
 
       <NewNote to="/new">
         <FiPlus />
-        Criar conta
+        Criar nota
       </NewNote>
     </Container>
   )
