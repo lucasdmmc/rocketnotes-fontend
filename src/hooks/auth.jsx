@@ -35,7 +35,6 @@ function AuthProvider({ children }) {
 
   async function updatedProfile({ user, avatarFile }) {
     try {
-
       if(avatarFile) {
         const fileUpdateForm = new FormData()
 

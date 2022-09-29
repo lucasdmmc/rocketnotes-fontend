@@ -8,7 +8,7 @@ import { Input } from "../../components/Input"
 import { Button } from "../../components/Button"
 
 export function SignIn() {
-  const { signIn} = useAuth()
+  const { signIn } = useAuth()
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")

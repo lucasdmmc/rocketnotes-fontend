@@ -18,7 +18,7 @@ export function Home() {
   const navigate = useNavigate()
 
   function handleTagSelected(tagName) {
-    if(tagName === "All") {
+    if(tagName === "all") {
       return setTagsSelected([])
     }
 
@@ -50,11 +50,11 @@ export function Home() {
     async function fetchNotes() {
       const response = await api.get(`/notes?title=${search}&tags=${tagsSelected}`)
       setNotes(response.data)
+      console.log(response)
     }
-
     fetchNotes()
-  }, [tagsSelected, search])
 
+  }, [tagsSelected, search])
 
   return (
     <Container>
@@ -68,20 +68,20 @@ export function Home() {
         <li>
           <ButtonText 
             title="Todos"
-            onClick={() => handleTagSelected("All")}
+            onClick={() => handleTagSelected("all")}
             isActive={tagsSelected.length === 0}
           />
         </li>
         { 
-          tags && tags.map(tag => {
-            return <li key={String(tag.id)}>
+          tags && tags.map(tag => (
+            <li key={String(tag.id)}>
             <ButtonText         
                 title={tag.name}
                 onClick={() => handleTagSelected(tag.name)}
                 isActive={tagsSelected.includes(tag.name)}
               />
             </li>
-          })
+          ))
         }
       </Menu>
 
